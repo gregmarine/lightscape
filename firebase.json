@@ -11,7 +11,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "./apps/bible-navigator/dist",
+    "public": "./dist",
     "ignore": [
       "firebase.json",
       "**/.*",

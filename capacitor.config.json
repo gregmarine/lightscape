@@ -1,13 +1,3 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "Bible Navigator",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "dist",
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 0
-    }
-  },
-  "cordova": {}
+  "appName": "Bible Navigator"
 }
