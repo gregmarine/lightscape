@@ -6,7 +6,7 @@
         "capacitor": {}
       },
       "type": "vue",
-      "root": "apps/bible-navigator"
+      "root": ""
     }
   }
 }
