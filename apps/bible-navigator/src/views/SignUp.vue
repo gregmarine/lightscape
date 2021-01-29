@@ -5,9 +5,8 @@
         <ion-title>Lightscape - SignUp</ion-title>
       </ion-toolbar>
     </ion-header>
-    
+
     <ion-content :fullscreen="true">
-    
       <div class="flex h-full justify-center items-center">
         <p>
           <ion-item>
@@ -16,7 +15,11 @@
           </ion-item>
           <ion-item>
             <ion-label position="fixed">Password</ion-label>
-            <ion-input v-model="password" placeholder="Password" type="password" />
+            <ion-input
+              v-model="password"
+              placeholder="Password"
+              type="password"
+            />
           </ion-item>
           <ion-item>
             <ion-button @click="signUp">Sign Up</ion-button>
@@ -28,14 +31,24 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonInput, IonItem, IonButton } from '@ionic/vue';
-import { defineComponent, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonLabel,
+  IonInput,
+  IonItem,
+  IonButton,
+} from "@ionic/vue";
+import { defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
 
-import useFirebase from '../composables/firebase';
+import useFirebase from "../composables/firebase";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   components: {
     IonContent,
     IonHeader,
@@ -45,25 +58,25 @@ export default defineComponent({
     IonLabel,
     IonInput,
     IonItem,
-    IonButton
+    IonButton,
   },
 
   setup() {
-    const email = ref<string>('');
-    const password = ref<string>('');
+    const email = ref<string>("");
+    const password = ref<string>("");
     const { signUpWithEmailPassword } = useFirebase();
     const { push } = useRouter();
 
     const signUp = async () => {
       await signUpWithEmailPassword(email.value, password.value);
-      push({ name: 'Home' });
+      push({ name: "Home" });
     };
 
     return {
       email,
       password,
-      signUp
-    }
-  }
+      signUp,
+    };
+  },
 });
 </script>

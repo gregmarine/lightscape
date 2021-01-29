@@ -5,9 +5,8 @@
         <ion-title>Lightscape - SignIn</ion-title>
       </ion-toolbar>
     </ion-header>
-    
-    <ion-content :fullscreen="true">
 
+    <ion-content :fullscreen="true">
       <div class="flex h-full justify-center items-center">
         <div>
           <ion-item>
@@ -16,7 +15,11 @@
           </ion-item>
           <ion-item>
             <ion-label position="fixed">Password</ion-label>
-            <ion-input v-model="password" placeholder="Password" type="password" />
+            <ion-input
+              v-model="password"
+              placeholder="Password"
+              type="password"
+            />
           </ion-item>
           <ion-item>
             <ion-button @click="signIn">Sign In</ion-button>
@@ -24,20 +27,29 @@
           </ion-item>
         </div>
       </div>
-      
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLabel, IonInput, IonItem, IonButton } from '@ionic/vue';
-import { defineComponent, ref } from 'vue';
-import { useRouter, RouterLink } from 'vue-router';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonLabel,
+  IonInput,
+  IonItem,
+  IonButton,
+} from "@ionic/vue";
+import { defineComponent, ref } from "vue";
+import { useRouter, RouterLink } from "vue-router";
 
-import useFirebase from '../composables/firebase';
+import useFirebase from "../composables/firebase";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   components: {
     IonContent,
     IonHeader,
@@ -48,25 +60,25 @@ export default defineComponent({
     IonInput,
     IonItem,
     IonButton,
-    RouterLink
+    RouterLink,
   },
 
   setup() {
-    const email = ref<string>('');
-    const password = ref<string>('');
+    const email = ref<string>("");
+    const password = ref<string>("");
     const { signInWithEmailPassword } = useFirebase();
     const { push } = useRouter();
 
     const signIn = async () => {
       await signInWithEmailPassword(email.value, password.value);
-      push({ name: 'Home' });
+      push({ name: "Home" });
     };
 
     return {
       email,
       password,
-      signIn
-    }
-  }
+      signIn,
+    };
+  },
 });
 </script>

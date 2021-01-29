@@ -22,12 +22,12 @@ import {
   IonTitle,
   IonContent,
   IonButtons,
-  IonButton
+  IonButton,
 } from "@ionic/vue";
 import ExploreContainer from "@/components/ExploreContainer.vue";
 
-import { useRouter } from 'vue-router';
-import useFirebase from '../composables/firebase';
+import { useRouter } from "vue-router";
+import useFirebase from "../composables/firebase";
 
 export default {
   name: "Plans",
@@ -39,7 +39,7 @@ export default {
     IonContent,
     IonPage,
     IonButtons,
-    IonButton
+    IonButton,
   },
   setup() {
     const { push } = useRouter();
@@ -47,12 +47,12 @@ export default {
 
     const doSignOut = async () => {
       await signOut();
-      push({ name: 'SignIn' });
-    }
+      push({ name: "SignIn" });
+    };
 
     return {
-      doSignOut
-    }
-  }
+      doSignOut,
+    };
+  },
 };
 </script>
