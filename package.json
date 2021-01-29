@@ -1,0 +1,11 @@
+{
+  "name": "lightscape",
+  "version": "0.0.1",
+  "description": "A suite of religious tools based on the Christian Faith",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Greg Marine",
+  "license": "ISC"
+}

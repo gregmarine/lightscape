@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "bible-navigator": {
+      "name": "Bible Navigator",
+      "integrations": {
+        "capacitor": {}
+      },
+      "type": "vue",
+      "root": "apps/bible-navigator"
+    }
+  }
+}
