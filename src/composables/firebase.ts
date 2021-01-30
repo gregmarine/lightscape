@@ -20,11 +20,15 @@ const state = reactive<{
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+  if(window.location.hostname && window.location.hostname === "localhost") {
+    firebase.auth().useEmulator('http://localhost:9099');
+    firebase.functions().useEmulator("localhost", 5001);
+  }
 }
 
 export default function() {
   const authCheck = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       !state.initialized &&
         firebase.auth().onAuthStateChanged((_user) => {
           if (_user) {
